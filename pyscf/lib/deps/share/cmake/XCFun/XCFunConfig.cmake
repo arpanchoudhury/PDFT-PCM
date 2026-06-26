@@ -1,0 +1,110 @@
+# XCFunConfig.cmake
+# ---------------------
+#
+# XCFun cmake module.
+# This module sets the following variables in your project:
+#
+# ::
+#
+#   XCFun_FOUND - true if XCFun and all required components found on the system
+#   XCFun_VERSION - XCFun version in format Major.Minor.Release
+#   XCFun_INCLUDE_DIRS - Directory where XCFun/xcfun.h header is located.
+#   XCFun_INCLUDE_DIR - same as DIRS
+#   XCFun_Fortran_SOURCES - List of Fortran interface source files, i.e. the xcfun.f90 module.
+#   XCFun_DEFINITIONS: Definitions necessary to use XCFun, namely USING_XCFun.
+#   XCFun_LIBRARIES - XCFun library to link against.
+#   XCFun_LIBRARY - same as LIBRARIES
+#   XCFun_PYMOD - path to XCFun python modules
+#
+# Exported targets:
+#
+# ::
+#
+# If XCFun is found, this module defines the following :prop_tgt:`IMPORTED`
+# target. ::
+#
+#   XCFun::xcfun - the main XCFun library with header & defs attached.
+#
+# Suggested usage:
+#
+# ::
+#
+#   find_package(XCFun)
+#   find_package(XCFun 1.1.7 CONFIG REQUIRED)
+#
+# The following variables can be set to guide the search for this package:
+#
+# ::
+#
+#   XCFun_DIR - CMake variable, set to directory containing this Config file
+#   CMAKE_PREFIX_PATH - CMake variable, set to root directory of this package
+#   PATH - environment variable, set to bin directory of this package
+#   CMAKE_DISABLE_FIND_PACKAGE_XCFun - CMake variable, disables
+#       find_package(XCFun) perhaps to force internal build
+
+
+####### Expanded from @PACKAGE_INIT@ by configure_package_config_file() #######
+####### Any changes to this file will be overwritten by the next CMake run ####
+####### The input file was XCFunConfig.cmake.in                            ########
+
+get_filename_component(PACKAGE_PREFIX_DIR "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
+
+macro(set_and_check _var _file)
+  set(${_var} "${_file}")
+  if(NOT EXISTS "${_file}")
+    message(FATAL_ERROR "File or directory ${_file} referenced by variable ${_var} does not exist !")
+  endif()
+endmacro()
+
+macro(check_required_components _NAME)
+  foreach(comp ${${_NAME}_FIND_COMPONENTS})
+    if(NOT ${_NAME}_${comp}_FOUND)
+      if(${_NAME}_FIND_REQUIRED_${comp})
+        set(${_NAME}_FOUND FALSE)
+      endif()
+    endif()
+  endforeach()
+endmacro()
+
+####################################################################################
+
+# find includes
+unset(_temp_h CACHE)
+find_path(_temp_h
+  NAMES
+    XCFun/xcfun.h
+  PATHS
+    ${PACKAGE_PREFIX_DIR}/include
+  NO_DEFAULT_PATH
+  )
+if(_temp_h)
+  set(XCFun_INCLUDE_DIR "${_temp_h}")
+  set(XCFun_INCLUDE_DIRS ${XCFun_INCLUDE_DIR})
+else()
+  set(XCFun_FOUND 0)
+  if(NOT CMAKE_REQUIRED_QUIET)
+    message(STATUS "XCFunConfig missing component: header (XCFun: ${_temp_h})")
+  endif()
+endif()
+
+# find Fortran 90 source file
+unset(_temp_f90 CACHE)
+find_path(_temp_f90
+  NAMES
+    XCFun/xcfun.f90
+  PATHS
+    ${PACKAGE_PREFIX_DIR}/include
+  NO_DEFAULT_PATH
+  )
+if(_temp_f90)
+  list(APPEND XCFun_Fortran_SOURCES "${_temp_f90}/XCFun/xcfun.f90")
+else()
+  set(XCFun_FOUND 0)
+  if(NOT CMAKE_REQUIRED_QUIET)
+    message(STATUS "XCFunConfig missing component: Fortran 90 module source (XCFun: ${_temp_f90})")
+  endif()
+endif()
+
+include("${CMAKE_CURRENT_LIST_DIR}/XCFunTargets.cmake")
+check_required_components("xcfun")
+set(XCFun_PYMOD ${PACKAGE_PREFIX_DIR}/lib/)

@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "/Users/arpan/Library/pyscf/pyscf/lib/libpbc.dylib"
+  "/Users/arpan/Library/pyscf/pyscf/lib/libpbc.pdb"
+  "CMakeFiles/pbc.dir/cell.c.o"
+  "CMakeFiles/pbc.dir/cell.c.o.d"
+  "CMakeFiles/pbc.dir/cint2e.c.o"
+  "CMakeFiles/pbc.dir/cint2e.c.o.d"
+  "CMakeFiles/pbc.dir/cint3c2e.c.o"
+  "CMakeFiles/pbc.dir/cint3c2e.c.o.d"
+  "CMakeFiles/pbc.dir/fill_ints.c.o"
+  "CMakeFiles/pbc.dir/fill_ints.c.o.d"
+  "CMakeFiles/pbc.dir/fill_ints_screened.c.o"
+  "CMakeFiles/pbc.dir/fill_ints_screened.c.o.d"
+  "CMakeFiles/pbc.dir/fill_ints_sr.c.o"
+  "CMakeFiles/pbc.dir/fill_ints_sr.c.o.d"
+  "CMakeFiles/pbc.dir/ft_ao.c.o"
+  "CMakeFiles/pbc.dir/ft_ao.c.o.d"
+  "CMakeFiles/pbc.dir/grid_ao.c.o"
+  "CMakeFiles/pbc.dir/grid_ao.c.o.d"
+  "CMakeFiles/pbc.dir/hf_grad.c.o"
+  "CMakeFiles/pbc.dir/hf_grad.c.o.d"
+  "CMakeFiles/pbc.dir/inner_dot.c.o"
+  "CMakeFiles/pbc.dir/inner_dot.c.o.d"
+  "CMakeFiles/pbc.dir/neighbor_list.c.o"
+  "CMakeFiles/pbc.dir/neighbor_list.c.o.d"
+  "CMakeFiles/pbc.dir/nr_direct.c.o"
+  "CMakeFiles/pbc.dir/nr_direct.c.o.d"
+  "CMakeFiles/pbc.dir/nr_ecp.c.o"
+  "CMakeFiles/pbc.dir/nr_ecp.c.o.d"
+  "CMakeFiles/pbc.dir/optimizer.c.o"
+  "CMakeFiles/pbc.dir/optimizer.c.o.d"
+  "CMakeFiles/pbc.dir/pp.c.o"
+  "CMakeFiles/pbc.dir/pp.c.o.d"
+  "CMakeFiles/pbc.dir/symmetry.c.o"
+  "CMakeFiles/pbc.dir/symmetry.c.o.d"
+  "CMakeFiles/pbc.dir/transform_mo.c.o"
+  "CMakeFiles/pbc.dir/transform_mo.c.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/pbc.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

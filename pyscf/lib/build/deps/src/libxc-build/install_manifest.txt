@@ -1,0 +1,13 @@
+/Users/arpan/Library/pyscf/pyscf/lib/deps/include/xc.h
+/Users/arpan/Library/pyscf/pyscf/lib/deps/include/xc_funcs.h
+/Users/arpan/Library/pyscf/pyscf/lib/deps/include/xc_funcs_worker.h
+/Users/arpan/Library/pyscf/pyscf/lib/deps/include/xc_funcs_removed.h
+/Users/arpan/Library/pyscf/pyscf/lib/deps/include/xc_version.h
+/Users/arpan/Library/pyscf/pyscf/lib/deps/bin/xc-info
+/Users/arpan/Library/pyscf/pyscf/lib/deps/lib/libxc.15.dylib
+/Users/arpan/Library/pyscf/pyscf/lib/deps/lib/libxc.dylib
+/Users/arpan/Library/pyscf/pyscf/lib/deps/lib/cmake/Libxc/LibxcConfig.cmake
+/Users/arpan/Library/pyscf/pyscf/lib/deps/lib/cmake/Libxc/LibxcConfigVersion.cmake
+/Users/arpan/Library/pyscf/pyscf/lib/deps/lib/cmake/Libxc/LibxcTargets-C.cmake
+/Users/arpan/Library/pyscf/pyscf/lib/deps/lib/cmake/Libxc/LibxcTargets-C-release.cmake
+/Users/arpan/Library/pyscf/pyscf/lib/deps/lib/pkgconfig/libxc.pc

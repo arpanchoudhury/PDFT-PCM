@@ -1,0 +1,9 @@
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/cint.dir
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/package.dir
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/package_source.dir
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/edit_cache.dir
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/rebuild_cache.dir
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/list_install_components.dir
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/install.dir
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/install/local.dir
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/CMakeFiles/install/strip.dir

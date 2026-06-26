@@ -1,0 +1,21 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/np_helper/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/gto/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/vhf/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/ao2mo/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/mcscf/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/cc/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/ccsdt/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/mp/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/ri/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/pbc/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/agf2/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/solvent/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/dft/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/pdft/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

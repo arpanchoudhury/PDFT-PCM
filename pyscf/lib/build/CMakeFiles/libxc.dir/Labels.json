@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxc"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxc.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxc-complete.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-build.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-configure.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-download.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-install.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-mkdir.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-patch.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libxc"
+		],
+		"name" : "libxc"
+	}
+}

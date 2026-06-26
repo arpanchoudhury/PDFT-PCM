@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

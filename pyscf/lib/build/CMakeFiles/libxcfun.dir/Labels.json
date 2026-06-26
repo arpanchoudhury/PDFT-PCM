@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxcfun"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxcfun.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxcfun-complete.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-build.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-configure.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-download.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-install.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-mkdir.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-patch.rule"
+		},
+		{
+			"file" : "/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libxcfun"
+		],
+		"name" : "libxcfun"
+	}
+}

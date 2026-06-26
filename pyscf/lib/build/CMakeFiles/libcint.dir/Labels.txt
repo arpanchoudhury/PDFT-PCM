@@ -1,0 +1,13 @@
+# Target labels
+ libcint
+# Source files and their labels
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libcint
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libcint.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libcint-complete.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-stamp/libcint-build.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-stamp/libcint-configure.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-stamp/libcint-download.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-stamp/libcint-install.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-stamp/libcint-mkdir.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-stamp/libcint-patch.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libcint-stamp/libcint-update.rule

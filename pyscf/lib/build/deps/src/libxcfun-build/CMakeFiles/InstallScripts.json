@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-build/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-build/api/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-build/src/cmake_install.cmake",
+		"/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-build/src/functionals/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

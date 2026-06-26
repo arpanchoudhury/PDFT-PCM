@@ -1,0 +1,13 @@
+# Target labels
+ libxcfun
+# Source files and their labels
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxcfun
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxcfun.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxcfun-complete.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-build.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-configure.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-download.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-install.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-mkdir.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-patch.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxcfun-stamp/libxcfun-update.rule

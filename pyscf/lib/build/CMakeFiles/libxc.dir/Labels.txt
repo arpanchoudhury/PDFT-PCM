@@ -1,0 +1,13 @@
+# Target labels
+ libxc
+# Source files and their labels
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxc
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxc.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/CMakeFiles/libxc-complete.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-build.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-configure.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-download.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-install.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-mkdir.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-patch.rule
+/Users/arpan/Library/pyscf/pyscf/lib/build/deps/src/libxc-stamp/libxc-update.rule
