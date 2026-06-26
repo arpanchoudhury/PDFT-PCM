@@ -647,7 +647,7 @@ To enable the solvent model for CASSCF, a decoration to CASSCF object as below n
 
         return casdm1, casdm2, gci, fcivec
 
-# ddCOSMO Potential should be added to the effective potential. However, there
+# Potential should be added to the effective potential. However, there
 # is no hook to modify the effective potential in CASSCF. The workaround
 # here is to modify hcore. It can affect the 1-electron operator in many CASSCF
 # functions: gen_h_op, update_casdm, casci.  Note hcore is used to compute the
@@ -1356,7 +1356,7 @@ class LPDFTWithSolvent(_Solvation):
 
 
     
-        # Step-I: single diagonalization
+        # Step-I: single EQ diagonalization
         self.lpdft_ham = self.make_lpdft_ham_(ot=ot, ci=ci_mcscf)
 
         if hasattr(self, "_irrep_slices"):
