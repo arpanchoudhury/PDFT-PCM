@@ -423,7 +423,6 @@ def _for_casscf(mc, solvent_obj, dm=None):
             matrix. A frozen ddCOSMO potential is added to the results.
     '''
 
-    #print('isinstance of mc before attach solvent:', isinstance(mc, _Solvation))
     if isinstance(mc, _Solvation):
         mc.with_solvent = solvent_obj
         return mc
@@ -434,7 +433,6 @@ def _for_casscf(mc, solvent_obj, dm=None):
         #logger.note(mc, 'SA-CASSCF detected in the _for_casscf function.')
         solvent_obj.state_id = 'sa_casscf'
 
-    #print('solvent_obj.equilibrium_solvation:', solvent_obj.equilibrium_solvation)
 
     if dm is not None:
         solvent_obj.e, solvent_obj.v = solvent_obj.kernel(dm)
@@ -488,111 +486,6 @@ To enable the solvent model for CASSCF, a decoration to CASSCF object as below n
             logger.info(self, '\n** The solvent potential is updated self-consistently in the CASSCF **\n')
 
 
-        return self
-
-
-    def _finalize(self):
-        
-        # suppress the logging in super()._finalize()
-        '''old_note = logger.note
-        logger.note = _SilentLogger().note
-        try:
-            super()._finalize()   
-        finally:
-            logger.note = old_note'''
-
-
-        # custom logging for SA-CASSCF
-        """from pyscf.mcscf.addons import StateAverageFCISolver
-
-        if isinstance(self.fcisolver, StateAverageFCISolver) and self.with_solvent.rf_root is None and self.with_solvent.phi_state is None:
-
-
-            #NOTE may be need to correct the ss_correction part in pcm.py and 
-            # also check if the self._final_solvent_potential, self._final_state_dms
-            # are correct as I have recently made modifications in that part in the casci below
-
-            tmp_e_solv = self.with_solvent.ss_correction(self._final_state_dms,
-                                                        refdm=self.with_solvent.refdm)
-
-
-            logger.note(self,"\n**************** (State-specific correction) ******************")
-            for i in range(len(self._final_e_states)):
-                    edup = numpy.einsum('ij,ji->', self._final_solvent_potential, self._final_state_dms[i])
-                    tmp_e = self._final_e_states[i] - edup + tmp_e_solv[i]
-                    logger.note(self, ' State %d weight %g E(CASSCF+solvent) = %.15g', i, self.weights[i], tmp_e)
-            logger.note(self,"****************************  *  *******************************\n")
-        
-        #super()._finalize()"""
-
-        '''state_dms_cas = StateAverageFCISolver.states_make_rdm1(self.fcisolver, self._fcivec, self.ncas, self.nelecas)
-
-            state_dms_ao = []
-            for dm1_cas in state_dms_cas:
-                mocore = self.mo_coeff[:,:self.ncore]
-                mocas = self.mo_coeff[:,self.ncore:self.ncore+self.ncas]
-                dm_ao = reduce(numpy.dot, (mocas, dm1_cas, mocas.T))
-                dm_ao += numpy.dot(mocore, mocore.T) * 2
-                state_dms_ao.append(dm_ao)
-
-
-            solvent_e = []
-            solvent_v = []
-            for dm_ao in state_dms_ao:
-                e_sol, v_sol = with_solvent.kernel(dm_ao)
-                solvent_e.append(e_sol)
-                solvent_v.append(v_sol)
-
-            edup_list = []
-            for i, dm_ao in enumerate(state_dms_ao):
-                tmp_edup = numpy.einsum('ij,ji->', solvent_v[i], dm_ao)
-                edup_list.append(tmp_edup)
-
-            e_tot_state_list = []
-            for i, ei in enumerate(self.e_states):
-                e_tot_state = ei + solvent_e[i] - edup_list[i]
-
-                # Add CDS correction if SMD is used
-                if with_solvent.__class__.__name__ == 'SMD':
-                    temp_e_cds = with_solvent.get_cds()
-
-                    if isinstance(temp_e_cds, numpy.ndarray):
-                        temp_e_cds = temp_e_cds[0]
-
-                    e_tot_state += temp_e_cds
-
-                e_tot_state_list.append(e_tot_state)'''
-
-        '''e_tot_state_list = []
-
-            for i, ei in enumerate(self.e_states):
-                e_tot_state = ei + self._e_solvent - self._edup
-                
-
-                # Add CDS correction if SMD is used
-                if with_solvent.__class__.__name__ == 'SMD':
-                    temp_e_cds = with_solvent.get_cds()
-
-                    if isinstance(temp_e_cds, numpy.ndarray):
-                        temp_e_cds = temp_e_cds[0]
-
-                    e_tot_state += temp_e_cds
-
-                e_tot_state_list.append(e_tot_state)
-
-
-            logger.note(self, 'CASCI energy for each state (with solvent)')
-            if getattr(self.fcisolver, 'states_spin_square', None):
-                ss = self.fcisolver.states_spin_square(self.ci, self.ncas,
-                                                   self.nelecas)[0]
-                for i, ei in enumerate(e_tot_state_list):
-                    logger.note(self, '  State %d weight %g  E = %.15g S^2 = %.7f',
-                            i, self.weights[i], ei, ss[i])
-            else:
-                for i, ei in enumerate(e_tot_state_list):
-                    logger.note(self, '  State %d weight %g  E = %.15g',
-                            i, self.weights[i], ei)'''
-                    
         return self
 
 
@@ -726,10 +619,8 @@ To enable the solvent model for CASSCF, a decoration to CASSCF object as below n
                 else:
                     e_solv =  with_solvent.e
                 
-                #print('e_states before solvent correction:', _e_states)
                 for i in range(len(_e_states)):
                     _e_states[i] = _e_states[i] - edups[i] + e_solv[i]
-                    #_e_states[i] = _e_states[i] + e_solv[i]
                 
 
                 e_tot = numpy.einsum('i,i->', _e_states, self.weights) 
@@ -849,7 +740,6 @@ def _for_lpdft(mc, solvent_obj, dm=None):
         mc.with_solvent = solvent_obj
         return mc
     
-    print('in the _for_lpdft function')
     if dm is not None:
         solvent_obj.e, solvent_obj.v = solvent_obj.kernel(dm)
         solvent_obj.frozen = True
@@ -865,7 +755,6 @@ class LPDFTWithSolvent(_Solvation):
     def __init__(self, mc, solvent):
         self.__dict__.update(mc.__dict__)
         self.with_solvent = solvent
-        print('in the LPDFTWithSolvent class')
 
     def undo_solvent(self):
         cls = self.__class__
@@ -960,8 +849,6 @@ class LPDFTWithSolvent(_Solvation):
             )
 
         cas_hyb = hyb[0]
-        #print('cas_hyb in make_lpdft_ham_', cas_hyb)
-        #print('self.e_mcscf[slice]', self.e_mcscf[slice(0, len(ci))])
 
         ncas = self.ncas
 
@@ -1067,8 +954,8 @@ class LPDFTWithSolvent(_Solvation):
             Relevant 2-body effective potential in the MO basis.
 
         neq : bool
-            If True, use optical dielectric K_sym_opt (orange/NEQ loop).
-            If False, use static dielectric K_sym (green/EQ loop).
+            If True, use optical dielectric K_sym_opt.
+            If False, use static dielectric K_sym.
 
         q_slow : ndarray of shape (ngrids,) or None
             Slow (inertial) PCM charges from ground state. Only used when neq=True.
@@ -1119,11 +1006,11 @@ class LPDFTWithSolvent(_Solvation):
         if not with_solvent._intermediates:
             with_solvent.build()
 
-        # select K_sym based on loop type
+        # select K_sym based on calculation type
         if neq:
-            K_sym = self._get_K_sym_opt()   # optical dielectric for orange loop
+            K_sym = self._get_K_sym_opt()   # optical dielectric for NEQ
         else:
-            # static dielectric for green loop — cached
+            # static dielectric — cached
             if 'K_sym' not in with_solvent._intermediates:
                 K = with_solvent._intermediates['K']
                 R = with_solvent._intermediates['R']
@@ -1131,18 +1018,18 @@ class LPDFTWithSolvent(_Solvation):
                 with_solvent._intermediates['K_sym'] = 0.5 * (K_inv_R + K_inv_R.T)
             K_sym = with_solvent._intermediates['K_sym']
 
-        vn = with_solvent.v_grids_n   # shape (ngrids,)
+        vn = with_solvent.v_grids_n   
         v0 = with_solvent._get_v(dm1[None, :])[0]    # electronic potential at grids
 
         # TERM1 = +0.5 * Kmm' V_N V_N'
         term1 = 0.5 * np.einsum('m,mn,n->', vn, K_sym, vn)
 
-        # TERM3 = -0.5 * Kmm' v0_m v0_m'
-        term3 = -0.5 * np.einsum('m,mn,n->', v0, K_sym, v0)
+        # TERM2 = -0.5 * Kmm' v0_m v0_m'
+        term2 = -0.5 * np.einsum('m,mn,n->', v0, K_sym, v0)
 
-        energy_core += term1 + term3
+        energy_core += term1 + term2
 
-        # NEQ slow charge terms (orange loop only)
+        # NEQ slow charge terms
         if neq and q_slow is not None and v_grids_0 is not None:
             term_slow_nuc  =  np.dot(vn, q_slow)
             term_slow_self = -0.5 * np.dot(v_grids_0, q_slow)
@@ -1158,8 +1045,8 @@ class LPDFTWithSolvent(_Solvation):
 
         Kwargs:
         neq : bool
-            If True, use optical dielectric K_sym_opt and add slow charge term
-            (orange/NEQ loop). If False, use static dielectric K_sym (green/EQ loop).
+            If True, use optical dielectric K_sym_opt and add slow charge term.
+            If False, use static dielectric K_sym.
 
         q_slow : ndarray of shape (ngrids,) or None
             Slow (inertial) PCM charges from ground state. Only used when neq=True.
@@ -1177,16 +1064,10 @@ class LPDFTWithSolvent(_Solvation):
         if not with_solvent._intermediates:
             with_solvent.build()
 
-        '''# cache int1e_grids — never changes
-        if 'int1e_grids' not in with_solvent._intermediates:
-            grid_coords = with_solvent.surface['grid_coords']
-            with_solvent._intermediates['int1e_grids'] = self.mol.intor(
-                'int1e_grids', grids=grid_coords)
-        int1e_grids = with_solvent._intermediates['int1e_grids']'''
 
-        # select K_sym based on loop type
+        # select K_sym 
         if neq:
-            K_sym = self._get_K_sym_opt()   # optical dielectric for orange loop
+            K_sym = self._get_K_sym_opt()   # optical dielectric for NEQ
         else:
             if 'K_sym' not in with_solvent._intermediates:
                 K = with_solvent._intermediates['K']
@@ -1356,7 +1237,7 @@ class LPDFTWithSolvent(_Solvation):
 
 
     
-        # Step-I: single EQ diagonalization
+        # Step-I: single diagonalization
         self.lpdft_ham = self.make_lpdft_ham_(ot=ot, ci=ci_mcscf)
 
         if hasattr(self, "_irrep_slices"):
@@ -1370,10 +1251,8 @@ class LPDFTWithSolvent(_Solvation):
         self.si_pdft  = si_pdft
         self.e_tot    = np.dot(e_states, self.weights)
         self.ci = list(np.tensordot(si_pdft.T, np.asarray(ci_mcscf), axes=1))
-        log.info('L-PDFT EQ state energies: %s', e_states)
+        #log.info('L-PDFT EQ state energies: %s', e_states)
         
-        #print("self.with_solvent.equilibrium_solvation:", self.with_solvent.equilibrium_solvation)
-        #print("self.with_solvent.refdm:", self.with_solvent.refdm.shape if self.with_solvent.refdm is not None else None)
         with_solvent = self.with_solvent
         if with_solvent.equilibrium_solvation:
             self._finalize_lin()
@@ -1383,46 +1262,67 @@ class LPDFTWithSolvent(_Solvation):
 
 
 
-        # Step-II: single NEQ diagonalization
-        # recompute Q^slow and V^0 from L-PDFT ground state density  
-
-        #print("with_solvent.rf_root",with_solvent.rf_root)
-        if with_solvent.rf_root is not None:      
-            _, _, q0_total, vgrid0 = with_solvent._get_vind(with_solvent.refdm)
-            q0_fast, _ = with_solvent._get_vind_pekar(with_solvent.refdm)
-
-        else:
-
-            casdm1s_gs = _dms.make_one_casdm1s(self, ci=self.ci, state=0)
-            dm1s_gs = _dms.casdm1s_to_dm1s(self, casdm1s=casdm1s_gs,
-                                        mo_coeff=self.mo_coeff)
-            dm1_gs = dm1s_gs[0] + dm1s_gs[1]
-
-            _, _, q0_total, vgrid0 = with_solvent._get_vind(dm1_gs)
-            q0_fast, _ = with_solvent._get_vind_pekar(dm1_gs)
-
-        q_slow    = (q0_total - q0_fast)[0]
-        v_grids_0 = vgrid0[0]
-
-        self.lpdft_ham = self.make_lpdft_ham_(
-            ot=ot, ci=ci_mcscf, neq=True,
-            q_slow=q_slow, v_grids_0=v_grids_0)
-
-        if hasattr(self, "_irrep_slices"):
-            e_states, si_pdft = zip(*map(self._eig_si, self.lpdft_ham))
-            e_states = np.concatenate(e_states)
-            si_pdft  = linalg.block_diag(*si_pdft)
-        else:
-            e_states, si_pdft = self._eig_si(self.lpdft_ham)
-
-        # final quantity updates
-        self.e_states = e_states
-        self.si_pdft  = si_pdft
-        self.e_tot    = np.dot(e_states, self.weights)
-        self.ci = list(np.tensordot(si_pdft.T, np.asarray(ci_mcscf), axes=1))
-
-        self._finalize_lin()
+        # Step-II: NEQ diagonalization loop
+         
+        lpdft_max_iter = 50 
+        lpdft_conv_tol = 1e-7
+        lpdft_conv = False
+        _iter = 0
+        e_tot_prev = 0.0
         
+        # recompute Q^slow(0) and V^(0) from L-PDFT ground state density until convergence
+        while not lpdft_conv and _iter < lpdft_max_iter:
+            #print("with_solvent.rf_root",with_solvent.rf_root)
+            if with_solvent.rf_root is not None:      
+                _, _, q0_total, vgrid0 = with_solvent._get_vind(with_solvent.refdm)
+                q0_fast, _ = with_solvent._get_vind_pekar(with_solvent.refdm)
+
+            else:
+
+                casdm1s_gs = _dms.make_one_casdm1s(self, ci=self.ci, state=0)
+                dm1s_gs = _dms.casdm1s_to_dm1s(self, casdm1s=casdm1s_gs,
+                                            mo_coeff=self.mo_coeff)
+                dm1_gs = dm1s_gs[0] + dm1s_gs[1]
+
+                _, _, q0_total, vgrid0 = with_solvent._get_vind(dm1_gs)
+                q0_fast, _ = with_solvent._get_vind_pekar(dm1_gs)
+
+            q_slow    = (q0_total - q0_fast)[0]
+            v_grids_0 = vgrid0[0]
+
+            self.lpdft_ham = self.make_lpdft_ham_(
+                ot=ot, ci=ci_mcscf, neq=True,
+                q_slow=q_slow, v_grids_0=v_grids_0)
+
+            if hasattr(self, "_irrep_slices"):
+                e_states, si_pdft = zip(*map(self._eig_si, self.lpdft_ham))
+                e_states = np.concatenate(e_states)
+                si_pdft  = linalg.block_diag(*si_pdft)
+            else:
+                e_states, si_pdft = self._eig_si(self.lpdft_ham)
+
+            # final quantity updates
+            self.e_states = e_states
+            self.si_pdft  = si_pdft
+            self.e_tot    = np.dot(e_states, self.weights)
+            self.ci = list(np.tensordot(si_pdft.T, np.asarray(ci_mcscf), axes=1))
+
+            
+        
+            lpdft_dE =abs(self.e_tot - e_tot_prev)
+            _iter += 1
+            log.info(f"Iteration {_iter}: dE = {lpdft_dE}")
+            self._finalize_lin()
+
+            if (_iter >= lpdft_max_iter) and (lpdft_dE > lpdft_conv_tol):
+                log.info("Nonequilibrium L-PDFT+solvent not converged within the maximum number of iterations.")
+
+            if (lpdft_dE <= lpdft_conv_tol):
+                lpdft_conv = True
+                log.info("Nonequilibrium L-PDFT+solvent converged.")
+                
+
+            e_tot_prev = self.e_tot
 
         return (self.e_tot, self.e_mcscf, self.e_cas,
                 self.ci, self.mo_coeff, self.mo_energy)

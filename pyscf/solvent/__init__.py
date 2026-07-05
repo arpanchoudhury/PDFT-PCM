@@ -14,7 +14,6 @@
 
 from pyscf.solvent import ddcosmo
 from pyscf.solvent import pcm
-#from pyscf.solvent import pcm_OpenMolcasStyle as pcm
 from pyscf.solvent import smd
 
 
@@ -152,11 +151,8 @@ def PCM(method_or_mol, solvent_obj=None, dm=None):
         return pcm.pcm_for_scf(method, solvent_obj, dm)
     
     elif hasattr(method, 'otfnal') and not isinstance(method, mcpdft.MultiStateMCPDFTSolver):
-        print('==================== Here we are in PCM for MC-PDFT')
-        print("otfnal in init file", method.otfnal)
         return pcm.pcm_for_mcpdft(method, solvent_obj, dm)
     elif hasattr(method, 'get_lpdft_ham') and isinstance(method, mcpdft.MultiStateMCPDFTSolver):
-        print('==================== Here we are in PCM for L-PDFT')
         return pcm.pcm_for_lpdft(method, solvent_obj, dm)
         
     elif isinstance(method, mcscf.casci.CASBase):
@@ -197,18 +193,13 @@ def SMD(method_or_mol, solvent_obj=None, dm=None):
         return smd.smd_for_scf(method, solvent_obj, dm)
     
     elif hasattr(method, 'otfnal') and not isinstance(method, mcpdft.MultiStateMCPDFTSolver):
-        print('==================== Here we are in SMD for MC-PDFT')
-        print("otfnal in init file", method.otfnal)
         return smd.smd_for_mcpdft(method, solvent_obj, dm)
     elif hasattr(method, 'get_lpdft_ham') and isinstance(method, mcpdft.MultiStateMCPDFTSolver):
-        print('==================== Here we are in SMD for L-PDFT')
         return smd.smd_for_lpdft(method, solvent_obj, dm)
     
 
     elif isinstance(method, mcscf.casci.CASBase):
         if isinstance(method, mcscf.mc1step.CASSCF):
-            print('==================== Here we are in SMD for CASSCF')
-            #print('es_method = ', es_method)
             return smd.smd_for_casscf(method, solvent_obj, dm)
         elif isinstance(method, mcscf.casci.CASCI):
             return smd.smd_for_casci(method, solvent_obj, dm)
