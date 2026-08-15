@@ -28,22 +28,12 @@ Solvation modes implemented for SA-CASSCF, MC-PDFT, and L-PDFT:
 - state-specific nonequilibrium solvation
 - state-averaged equilibrium solvation
 - state-averaged nonequilibrium solvation
+
 Nonequilibrium solvation uses Pekar's partition of the surface charges into fast
 and slow components, with the slow charges obtained from the ground state and the
 fast charges from a chosen state.
  
-## Installation
- 
-The implementation requires the `pdft-pcm` branch of the PySCF fork (based on
-PySCF v2.11.0):
- 
-```bash
-git clone https://github.com/arpanchoudhury/pyscf.git
-cd pyscf
-git checkout pdft-pcm
-pip install -e .
-```
- 
+
 ## Usage
  
 Attach PCM to an MC-PDFT or L-PDFT object and select the solvation mode through
