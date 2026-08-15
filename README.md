@@ -77,7 +77,7 @@ charges in an equilibrium/nonequilibrium state-averaged calculation.
 ## Repository contents
  
 ```
-data/         chekpoint files for final results 
+data/         checkpoint files for final results 
               MP2-optimized ground-state structures (gas phase and solvent)
               PySCF input scripts
               OpenMolcas input scripts for nonequilibrium XMS-CASPT2 calculations
