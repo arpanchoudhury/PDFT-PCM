@@ -8,9 +8,9 @@ manuscript.
 ## Paper
  
 A. Choudhury, M. R. Hermes, D. G. Truhlar, L. Gagliardi,
-*Pair-Density Functional Theory with Implicit Solvent* (submitted).
- 
-<!-- Replace with the full citation / DOI once published. -->
+*Vertical Excitation Energies in Solution via a Two-Time-Scale Solvation Model Coupled to
+Pair-Density Functional Theory* (submitted).
+
  
 ## Code
  
@@ -18,14 +18,12 @@ The implementation lives in a fork of PySCF, on the `pdft-pcm` branch:
  
 **https://github.com/arpanchoudhury/pyscf/tree/pdft-pcm**
  
-This repository holds the input files, geometries, and analysis scripts used to
-produce the results in the paper.
+This repository holds the geometries, some input example scripts, and `chk` files from PySCF calculations.
  
 ## Features
  
 Solvation modes implemented for SA-CASSCF, MC-PDFT, and L-PDFT:
  
-- ground-state equilibrium solvation (default)
 - state-specific equilibrium solvation
 - state-specific nonequilibrium solvation
 - state-averaged equilibrium solvation
