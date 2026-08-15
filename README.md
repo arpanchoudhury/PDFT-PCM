@@ -71,20 +71,20 @@ The mode is determined by `state_id` and `equilibrium_solvation`:
 | `None` | `False` | state-averaged nonequilibrium | `rfroot` |
  
 `refdm` is the density matrix defining the slow charges (typically the converged
-ground-state density). `rfroot` selects the state whose density defines the fast
-charges in a state-averaged calculation.
+ground-state density). `rfroot` selects the state whose density defines the total/fast
+charges in an equilibrium/nonequilibrium state-averaged calculation.
  
 ## Repository contents
  
 ```
-inputs/       PySCF input scripts for each molecule and solvent
-geometries/   MP2-optimized ground-state structures (gas phase and solvent)
-outputs/      raw calculation logs
-scripts/      analysis and figure-generation scripts
+data/         chekpoint files for final results 
+              MP2-optimized ground-state structures (gas phase and solvent)
+              PySCF input scripts
+              OpenMolcas input scripts for nonequilibrium XMS-CASPT2 calculations
+pyscf/        required codes
+test/         unit test
 ```
- 
-<!-- Adjust to match the actual layout. -->
- 
+  
 ## Computational details
  
 Settings used for the results in the paper:
@@ -94,8 +94,8 @@ Settings used for the results in the paper:
 - **On-top functional**: tPBE
 - **Integration grid**: PySCF grid level 6
 - **Geometries**: optimized at MP2 with Gaussian 16 (equilibrium solvation in solvent)
-- **Reference calculations**: XMS-CASPT2 with OpenMolcas v26.02 (IPEA shift 0.25,
-  imaginary level shift 0.2i); nonequilibrium LR-TDDFT with Q-Chem v6.2
+- **Other calculations**: XMS-CASPT2 with OpenMolcas v26.02 (IPEA shift 0.25,
+  imaginary level shift 0.2i); nonequilibrium TDDFT/ptSS with Q-Chem v6.2
 Active spaces for each system are listed in the manuscript.
  
 ## License
@@ -105,3 +105,4 @@ Active spaces for each system are listed in the manuscript.
 ## Contact
  
 Arpan Choudhury — Department of Chemistry, University of Chicago.
+(arpanchoudhury@uchicago.edu)
