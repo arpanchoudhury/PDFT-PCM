@@ -1,5 +1,5 @@
 ## MC-PDFT & L-PDFT with polarized continuum model
-A PySCF-based implementation of Polarized continuum model solvent for MC-PDFT and L-PDFT.
+A PySCF-based implementation of Polarized continuum model solvation for MC-PDFT and L-PDFT.
 
 Features included:
 - state-specific equilibrium solvation
