@@ -42,20 +42,20 @@ the `with_solvent` attributes:
 ```python
 from pyscf import gto, scf, mcpdft, solvent
  
-mol = gto.M(atom='...', basis='jul-cc-pVTZ')
-mf = scf.RHF(mol).run()
+mol = gto.M(atom='...', basis='aug-cc-pVTZ')
+mf = solvent.PCM(scf.RHF(mol)).run()
  
 # state-averaged L-PDFT over 2 states
 mc = mcpdft.CASSCF(mf, 'tPBE', ncas, nelecas).state_average_([0.5, 0.5])
+mc.fix_spin_(ss=0) 
+
+mc =  mc.multi_state([0.5, 0.5], "lin")
 mc = solvent.PCM(mc)
- 
 # state-averaged nonequilibrium solvation:
 # slow charges from state 0, fast charges from state rfroot
-mc.with_solvent.state_id = None
 mc.with_solvent.equilibrium_solvation = False
-mc.with_solvent.rfroot = 1
- 
-mc.run()
+mc.with_solvent.rfroot = 1 
+mc.kernel()
 ```
  
 ### Selecting the solvation mode
