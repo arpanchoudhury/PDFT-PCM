@@ -45,8 +45,8 @@ from pyscf import gto, scf, mcpdft, solvent
 mol = gto.M(atom='...', basis='aug-cc-pVTZ')
 mf = solvent.PCM(scf.RHF(mol)).run()
  
-# state-averaged L-PDFT over 2 states
-mc = mcpdft.CASSCF(mf, 'tPBE', ncas, nelecas).state_average_([0.5, 0.5])
+# L-PDFT over 2 states
+mc = mcpdft.CASSCF(mf, 'tPBE', ncas, nelecas)
 mc.fix_spin_(ss=0) 
 
 mc =  mc.multi_state([0.5, 0.5], "lin")
