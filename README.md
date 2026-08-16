@@ -4,6 +4,9 @@ A PySCF-based implementation of polarizable continuum model (PCM) solvation for
 multiconfiguration pair-density functional theory (MC-PDFT) and linearized PDFT
 (L-PDFT), together with data and example input files supporting the accompanying
 manuscript.
+
+ ![Alt text](<img width="2600" height="1256" alt="toc" src="https://github.com/user-attachments/assets/94886f91-024b-4dad-a617-92eeb689544c" />
+)
  
 ## Paper
  
