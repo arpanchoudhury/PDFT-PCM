@@ -5,8 +5,10 @@ multiconfiguration pair-density functional theory (MC-PDFT) and linearized PDFT
 (L-PDFT), together with data and example input files supporting the accompanying
 manuscript.
 
-<img src="toc.png"  width="60%">
- 
+<p align="center">
+ <img src="toc.png"  width="60%">
+</p>
+
 ## Paper
  
 A. Choudhury, M. R. Hermes, D. G. Truhlar, L. Gagliardi,
